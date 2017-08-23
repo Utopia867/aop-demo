@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/aop_demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: jj99foryou
+    driver-class-name: com.mysql.jdbc.Driver
+    connection-timeout: 1000
+  application:
+    name: aop-demo
+  thymeleaf:
+    cache: false
+    prefix: /
+  aop:
+    auto: true
+    proxy-target-class: true
+
+server:
+  port: 8034
+  contextPath: /aopdemo
+api:
+  doc:
+    title: aop-demo api 接口文档
+    version: .0
+    packagePath: com.example.demo.web
+    isSwagger: true
+
+mybatis:
+  mapper-locations: classpath:mybatis/*Mapper.xml
+  typeAliasesPackage: com.example.*.entity
