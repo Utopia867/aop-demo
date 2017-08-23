@@ -22,7 +22,7 @@ public class AopAspect {
         Object[] args = joinPoint.getArgs();
         //获取方法名
         String methodName = joinPoint.getSignature().getName();
-        System.out.println("当前方法："+methodName+"/n"+"参数："+Arrays.toString(args));
+        System.out.println("当前方法："+methodName+"  "+"参数："+Arrays.toString(args));
 
     }
 }
