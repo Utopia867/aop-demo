@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.StudentDao">
-    <resultMap id="AddressMap2" type="com.example.demo.entity.Address" autoMapping="true"/>
+    <resultMap id="AddressMap2" type="com.example.demo.entity.Address" autoMapping="true">
+        <id property="id" column="address_id"/>
+    </resultMap>
     <resultMap id="StudentMap" type="com.example.demo.entity.Student" autoMapping="true">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -16,7 +18,7 @@
         FROM student s LEFT JOIN address a ON s.addressId=a.id
     </select>
     <select id="findAll" resultMap="StudentMap">
-        SELECT s.id,s.name,s.sex,s.age,s.phone,s.createTime,a.id,a.province,a.city,a.detail
+        SELECT s.id,s.name,s.sex,s.age,s.phone,s.createTime,a.id address_id,a.province,a.city,a.detail
         FROM student s LEFT JOIN address a ON s.addressId=a.id
     </select>
     <update id="saveAddressId" parameterType="Long">
