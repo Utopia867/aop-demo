@@ -5,16 +5,10 @@
         <id property="id" column="address_id"/>
     </resultMap>
     <resultMap id="StudentMap" type="com.example.demo.entity.Student" autoMapping="true">
-        <result property="id" column="id"/>
-        <result property="name" column="name"/>
-        <result property="sex" column="sex"/>
-        <result property="age" column="age"/>
-        <result property="phone" column="phone"/>
-        <result property="createTime" column="createTime"/>
         <association property="address" column="addressId" javaType="com.example.demo.entity.Address" resultMap="AddressMap2"/>
     </resultMap>
     <select id="pageAll" parameterType="com.baomidou.mybatisplus.plugins.Page" resultMap="StudentMap">
-        SELECT s.id,s.name,s.sex,s.age,s.phone,s.createTime,a.id,a.province,a.city,a.detail
+        SELECT s.id,s.name,s.sex,s.age,s.phone,s.createTime,a.id address_id,a.province,a.city,a.detail
         FROM student s LEFT JOIN address a ON s.addressId=a.id
     </select>
     <select id="findAll" resultMap="StudentMap">
